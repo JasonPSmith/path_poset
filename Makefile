@@ -1,4 +1,10 @@
-build: path_poset
+build: path_poset path_poset_sage path_poset_deltser
 
 path_poset: path_poset.cpp
 	@echo "Compiling \"path_poset\"." && g++ -std=c++11 -pthread -O3 path_poset.cpp -o path_poset
+
+path_poset_sage: path_poset_sage.cpp
+	@echo "Compiling \"path_poset_sage\"." && g++ -std=c++11 -pthread -O3 path_poset_sage.cpp -o path_poset_sage
+
+path_poset_deltser: path_poset_deltser.cpp
+	@echo "Compiling \"path_poset_deltser\"." && g++ -std=c++11 -pthread -O3 path_poset_deltser.cpp -o path_poset_deltser
