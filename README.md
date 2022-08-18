@@ -1,6 +1,6 @@
 # path_poset
 
-Computes the Mobiues function (or equivalently Euler Characteristic of the order complex) of the path poset studied [here](https://arxiv.org/abs/2110.11206).
+Computes the Euler characteristic and homology of the multipath complex studied [here](https://arxiv.org/abs/2208.04656).
 
 Compile in unix using `make`.
 
