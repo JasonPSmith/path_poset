@@ -13,7 +13,7 @@ where:
 For example: 
 `./path_poset 6 8 test.edges`
 
-Also contained here is path_poset_sage and path_poset_deltser. These have an extra input "out_address", and will create a file that can be feed into sagemath or [deltser](https://github.com/JasonPSmith/deltser), respectively, to compute homology.
+Also contained here is path_poset_sage and path_poset_deltser. These compute homology using sagemath or [deltser](https://github.com/JasonPSmith/deltser), respectively. They have an extra input "out_address", and will create a file that can be fed into sagemath or [deltser](https://github.com/JasonPSmith/deltser).
 
 For example:
 `./path_poset_sage 6 8 test.edges test.sage`
