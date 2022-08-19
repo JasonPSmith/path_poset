@@ -13,7 +13,7 @@ where:
 For example: 
 `./path_poset 6 8 test.edges`
 
-Also contained here is path_poset_sage and path_poset_deltser. These compute homology using sagemath or [deltser](https://github.com/JasonPSmith/deltser), respectively. They have an extra input "out_address", and will create a file that can be fed into sagemath or [deltser](https://github.com/JasonPSmith/deltser).
+Also contained here is path_poset_sage and path_poset_deltser. These compute homology using [SageMath](https://www.sagemath.org/) or [deltser](https://github.com/JasonPSmith/deltser), respectively. They have an extra input "out_address", and will create a file that can be fed into [SageMath](https://www.sagemath.org/) or [deltser](https://github.com/JasonPSmith/deltser).
 
 For example:
 `./path_poset_sage 6 8 test.edges test.sage`
@@ -27,3 +27,5 @@ creates a file test.delt, which when run with
 returns the homology using deltser
 
 The function path_poset_deltser is faster, but only returns Betti's, whilst path_poset_sage is slower, but returns the full homology.
+
+To compile path_poset_deltser requires the [boost](https://www.boost.org/) library. If you do not wish to compile path_poset_deltser, then remove its name from the first line of Makefile.
