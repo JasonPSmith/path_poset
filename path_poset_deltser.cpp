@@ -164,10 +164,10 @@ std::unordered_set<index_t> frozenpath(subpath_t& to_copy, dict_t& edge_dict){
 
 //****************************************************************************//
 //Functions for constructing paths and threading
-void cont_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread, 
+void cont_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread,
     paths_t& the_paths, dict_t& edge_dict);
 
-void new_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread, 
+void new_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread,
     paths_t& the_paths, dict_t& edge_dict){
     for (int i = current_subpath.latest_initial()+1; i < graph.num_vertices; i++){
         if (!current_subpath.visited(i)){
@@ -183,7 +183,7 @@ void new_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int 
     }
 }
 
-void cont_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread, 
+void cont_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int thread,
     paths_t& the_paths, dict_t& edge_dict){
     //get neighbours of current end of path
     new_path(current_subpath, graph, s, thread, the_paths, edge_dict);
@@ -199,7 +199,7 @@ void cont_path(subpath_t& current_subpath, const graph_t& graph, int64_t& s, int
     }
 }
 
-void worker_thread(std::vector<edge_t>& edges, const graph_t& graph, int64_t& s, int thread, int num_threads, 
+void worker_thread(std::vector<edge_t>& edges, const graph_t& graph, int64_t& s, int thread, int num_threads,
     paths_t& the_paths, dict_t& edge_dict) {
     //For every edge starting at a vertex of start_vertices, create a path and call cont_path on it
     for (uint64_t i = thread; i < edges.size(); i += num_threads){
@@ -274,14 +274,14 @@ int main(int argc, char** argv) {
     std::vector<std::vector<std::vector<index_t>>> list_by_face;
     list_by_face.resize(max_dim);
     list_by_face[0].resize(edges.size());
-    for (int i = 0; i < edges.size(); i++)  list_by_face[0][i] = std::vector<index_t>(1,i);    
+    for (int i = 0; i < edges.size(); i++)  list_by_face[0][i] = std::vector<index_t>(1,i);
     for (int i = 1; i < list_by_face.size(); i++){
         list_by_face[i].resize(the_paths[0][i+1].size());
         for (int p = 0; p < the_paths[0][i+1].size(); p++){
             list_by_face[i][p] = path_to_faces(the_paths[0][i+1][p],the_paths[0][i]);;
         }
     }
-    
+
     std::cout<<"Converted to deltser format" <<std::endl;
 
     std::ofstream outfile(out_address);
